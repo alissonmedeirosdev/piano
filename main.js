@@ -47,11 +47,15 @@ function removePlayingClass(event) {
   event.target.classList.remove('playing')
 }
 
-// click with mouse
-keys.forEach(key => {
-  key.addEventListener('click', playNote)
-  key.addEventListener('transitionend', removePlayingClass)
-})
+function registerEvents() {
+  // click with mouse
+  keys.forEach(key => {
+    key.addEventListener('click', playNote)
+    key.addEventListener('transitionend', removePlayingClass)
+  })
 
-// keyboard type
-window.addEventListener('keydown', playNote)
+  // keyboard type
+  window.addEventListener('keydown', playNote)
+}
+
+window.addEventListener('load', registerEvents)
